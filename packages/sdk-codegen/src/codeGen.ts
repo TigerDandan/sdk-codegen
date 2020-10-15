@@ -642,6 +642,7 @@ export abstract class CodeGen implements ICodeGen {
   hashClose = ' }'
   typeOpen = '{'
   typeClose = '}'
+  kwArgs = false
 
   indentStr = '  '
   commentStr = '// '
@@ -775,7 +776,10 @@ export abstract class CodeGen implements ICodeGen {
       }
       method.allParams.forEach((p) => {
         const v = this.argValue('', p, inputs)
-        if (v !== '') args.push(v)
+        if (v !== '') {
+          const arg = this.kwArgs ? `${p.name}=${v}` : v
+          args.push(arg)
+        }
       })
     }
     return args.join(this.argDelimiter)

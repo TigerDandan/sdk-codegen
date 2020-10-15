@@ -26,6 +26,7 @@
 
 import {
   Arg,
+  ArgValues,
   EnumType,
   IMethod,
   IParameter,
@@ -33,7 +34,7 @@ import {
   IType,
   strBody,
 } from './sdkModels'
-import { CodeGen, IMappedType } from './codeGen'
+import { CodeGen, IMappedType, trimInputs } from './codeGen'
 
 export class PythonGen extends CodeGen {
   codePath = './python/'
@@ -42,6 +43,7 @@ export class PythonGen extends CodeGen {
   fileExtension = '.py'
   commentStr = '# '
   nullStr = 'None'
+  kwArgs = true
 
   indentStr = '    '
   argDelimiter = `,\n${this.indentStr.repeat(3)}`
@@ -91,23 +93,6 @@ export class PythonGen extends CodeGen {
     'with',
     'yield',
   ])
-
-  readonly pythonTypes: Record<string, IMappedType> = {
-    any: { default: this.nullStr, name: 'Any' },
-    boolean: { default: this.nullStr, name: 'bool' },
-    byte: { default: this.nullStr, name: 'bytes' },
-    datetime: { default: this.nullStr, name: 'datetime.datetime' },
-    double: { default: this.nullStr, name: 'float' },
-    float: { default: this.nullStr, name: 'float' },
-    int32: { default: this.nullStr, name: 'int' },
-    int64: { default: this.nullStr, name: 'int' },
-    integer: { default: this.nullStr, name: 'int' },
-    number: { default: this.nullStr, name: 'float' },
-    password: { default: this.nullStr, name: 'str' },
-    string: { default: this.nullStr, name: 'str' },
-    uri: { default: this.nullStr, name: 'str' },
-    void: { default: this.nullStr, name: 'None' },
-  }
 
   // cattrs [un]structure hooks for model [de]serialization
   hooks: string[] = []
@@ -280,6 +265,16 @@ ${this.hooks.join('\n')}
       `${indent}${param.name}: ${paramType}` +
       (param.required ? '' : ` = ${mapped.default}`)
     )
+  }
+
+  makeTheCall(method: IMethod, inputs: ArgValues): string {
+    const origDelim = this.argDelimiter
+    this.argDelimiter = ', '
+    inputs = trimInputs(inputs)
+    const resp = `response = sdk.${method.name}(`
+    const args = this.assignParams(method, inputs)
+    this.argDelimiter = origDelim
+    return `${resp}${args})`
   }
 
   initArg(indent: string, property: IProperty) {
@@ -524,10 +519,29 @@ ${this.hooks.join('\n')}
     return text ? `${indent}"""${text}"""\n` : ''
   }
 
-  _typeMap(type: IType, format: 'models' | 'methods'): IMappedType {
-    this.typeMap(type)
+  asStringVal = (_: string, v: string) => `'${v}'`
+
+  typeMap(type: IType, format: 'models' | 'methods' = 'models'): IMappedType {
+    const pythonTypes: Record<string, IMappedType> = {
+      any: { default: this.nullStr, name: 'Any' },
+      boolean: { default: this.nullStr, name: 'bool' },
+      byte: { default: this.nullStr, name: 'bytes' },
+      datetime: { default: this.nullStr, name: 'datetime.datetime' },
+      double: { default: this.nullStr, name: 'float' },
+      float: { default: this.nullStr, name: 'float' },
+      int32: { default: this.nullStr, name: 'int' },
+      int64: { default: this.nullStr, name: 'int' },
+      integer: { default: this.nullStr, name: 'int' },
+      number: { default: this.nullStr, name: 'float' },
+      password: { default: this.nullStr, name: 'str', asVal: this.asStringVal },
+      string: { default: this.nullStr, name: 'str', asVal: this.asStringVal },
+      uri: { default: this.nullStr, name: 'str', asVal: this.asStringVal },
+      void: { default: this.nullStr, name: 'None' },
+    }
+
+    super.typeMap(type)
     if (type.elementType) {
-      const map = this._typeMap(type.elementType, format)
+      const map = this.typeMap(type.elementType, format)
       switch (type.className) {
         case 'ArrayType':
           return { default: this.nullStr, name: `Sequence[${map.name}]` }
@@ -557,7 +571,7 @@ ${this.hooks.join('\n')}
       } else {
         throw new Error('format must be "models" or "methods"')
       }
-      const result = this.pythonTypes[type.name]
+      const result = pythonTypes[type.name]
       return result || { default: this.nullStr, name: name }
     } else {
       throw new Error('Cannot output a nameless type.')
@@ -565,10 +579,10 @@ ${this.hooks.join('\n')}
   }
 
   typeMapMethods(type: IType) {
-    return this._typeMap(type, 'methods')
+    return this.typeMap(type, 'methods')
   }
 
   typeMapModels(type: IType) {
-    return this._typeMap(type, 'models')
+    return this.typeMap(type, 'models')
   }
 }
