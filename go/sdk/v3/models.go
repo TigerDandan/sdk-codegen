@@ -63,7 +63,7 @@ type ApiSession struct {
 
 type ApiVersion struct {
   LookerReleaseVersion *string              `json:"looker_release_version,omitempty"`  // Current Looker release version number
-  CurrentVersion       *ApiVersionElement   `json:"current_version,omitempty"`        
+  CurrentVersion       *ApiVersionElement   `json:"current_version,omitempty"`
   SupportedVersions    *[]ApiVersionElement `json:"supported_versions,omitempty"`      // Array of versions supported by this Looker instance
 }
 
@@ -115,8 +115,8 @@ type ContentFavorite struct {
   ContentMetadataId *int64         `json:"content_metadata_id,omitempty"`  // Content Metadata Id associated with this ContentFavorite
   LookId            *int64         `json:"look_id,omitempty"`              // Id of a look
   DashboardId       *int64         `json:"dashboard_id,omitempty"`         // Id of a dashboard
-  Look              *LookBasic     `json:"look,omitempty"`                
-  Dashboard         *DashboardBase `json:"dashboard,omitempty"`           
+  Look              *LookBasic     `json:"look,omitempty"`
+  Dashboard         *DashboardBase `json:"dashboard,omitempty"`
 }
 
 
@@ -169,9 +169,9 @@ type ContentValidationAlert struct {
 type ContentValidationDashboard struct {
   Description *string                  `json:"description,omitempty"`  // Description
   Id          *string                  `json:"id,omitempty"`           // Unique Id
-  Folder      *ContentValidationFolder `json:"folder,omitempty"`      
+  Folder      *ContentValidationFolder `json:"folder,omitempty"`
   Title       *string                  `json:"title,omitempty"`        // Dashboard Title
-  Space       *ContentValidationSpace  `json:"space,omitempty"`       
+  Space       *ContentValidationSpace  `json:"space,omitempty"`
 }
 
 
@@ -224,8 +224,8 @@ type ContentValidationFolder struct {
 type ContentValidationLook struct {
   Id     *int64                   `json:"id,omitempty"`      // Unique Id
   Title  *string                  `json:"title,omitempty"`   // Look Title
-  Folder *ContentValidationFolder `json:"folder,omitempty"` 
-  Space  *ContentValidationSpace  `json:"space,omitempty"`  
+  Folder *ContentValidationFolder `json:"folder,omitempty"`
+  Space  *ContentValidationSpace  `json:"space,omitempty"`
 }
 
 
@@ -233,7 +233,7 @@ type ContentValidationLookMLDashboard struct {
   Id      *string    `json:"id,omitempty"`        // ID of the LookML Dashboard
   Title   *string    `json:"title,omitempty"`     // Title of the LookML Dashboard
   SpaceId *string    `json:"space_id,omitempty"`  // ID of Space
-  Space   *SpaceBase `json:"space,omitempty"`    
+  Space   *SpaceBase `json:"space,omitempty"`
 }
 
 
@@ -257,14 +257,14 @@ type ContentValidationSpace struct {
 
 
 type ContentValidatorError struct {
-  Look                   *ContentValidationLook                   `json:"look,omitempty"`                     
-  Dashboard              *ContentValidationDashboard              `json:"dashboard,omitempty"`                
-  DashboardElement       *ContentValidationDashboardElement       `json:"dashboard_element,omitempty"`        
-  DashboardFilter        *ContentValidationDashboardFilter        `json:"dashboard_filter,omitempty"`         
-  ScheduledPlan          *ContentValidationScheduledPlan          `json:"scheduled_plan,omitempty"`           
-  Alert                  *ContentValidationAlert                  `json:"alert,omitempty"`                    
-  LookmlDashboard        *ContentValidationLookMLDashboard        `json:"lookml_dashboard,omitempty"`         
-  LookmlDashboardElement *ContentValidationLookMLDashboardElement `json:"lookml_dashboard_element,omitempty"` 
+  Look                   *ContentValidationLook                   `json:"look,omitempty"`
+  Dashboard              *ContentValidationDashboard              `json:"dashboard,omitempty"`
+  DashboardElement       *ContentValidationDashboardElement       `json:"dashboard_element,omitempty"`
+  DashboardFilter        *ContentValidationDashboardFilter        `json:"dashboard_filter,omitempty"`
+  ScheduledPlan          *ContentValidationScheduledPlan          `json:"scheduled_plan,omitempty"`
+  Alert                  *ContentValidationAlert                  `json:"alert,omitempty"`
+  LookmlDashboard        *ContentValidationLookMLDashboard        `json:"lookml_dashboard,omitempty"`
+  LookmlDashboardElement *ContentValidationLookMLDashboardElement `json:"lookml_dashboard_element,omitempty"`
   Errors                 *[]ContentValidationError                `json:"errors,omitempty"`                    // A list of errors found for this piece of content
   Id                     *string                                  `json:"id,omitempty"`                        // An id unique to this piece of content for this validation run
 }
@@ -468,15 +468,15 @@ type Dashboard struct {
   Description         *string              `json:"description,omitempty"`            // Description
   Hidden              *bool                `json:"hidden,omitempty"`                 // Is Hidden
   Id                  *string              `json:"id,omitempty"`                     // Unique Id
-  Model               *LookModel           `json:"model,omitempty"`                 
+  Model               *LookModel           `json:"model,omitempty"`
   QueryTimezone       *string              `json:"query_timezone,omitempty"`         // Timezone in which the Dashboard will run by default.
   Readonly            *bool                `json:"readonly,omitempty"`               // Is Read-only
   RefreshInterval     *string              `json:"refresh_interval,omitempty"`       // Refresh Interval, as a time duration phrase like "2 hours 30 minutes". A number with no time units will be interpreted as whole seconds.
   RefreshIntervalToI  *int64               `json:"refresh_interval_to_i,omitempty"`  // Refresh Interval in milliseconds
-  Folder              *FolderBase          `json:"folder,omitempty"`                
+  Folder              *FolderBase          `json:"folder,omitempty"`
   Title               *string              `json:"title,omitempty"`                  // Dashboard Title
   UserId              *int64               `json:"user_id,omitempty"`                // Id of User
-  Space               *SpaceBase           `json:"space,omitempty"`                 
+  Space               *SpaceBase           `json:"space,omitempty"`
   BackgroundColor     *string              `json:"background_color,omitempty"`       // Background color
   CreatedAt           *time.Time           `json:"created_at,omitempty"`             // Time that the Dashboard was created.
   CrossfilterEnabled  *bool                `json:"crossfilter_enabled,omitempty"`    // Enables crossfiltering in dashboards - only available in dashboards-next (beta)
@@ -502,7 +502,7 @@ type Dashboard struct {
   TileTextColor       *string              `json:"tile_text_color,omitempty"`        // Tile text color
   TitleColor          *string              `json:"title_color,omitempty"`            // Title color
   ViewCount           *int64               `json:"view_count,omitempty"`             // Number of times viewed in the Looker web UI
-  Appearance          *DashboardAppearance `json:"appearance,omitempty"`            
+  Appearance          *DashboardAppearance `json:"appearance,omitempty"`
   PreferredViewer     *string              `json:"preferred_viewer,omitempty"`       // The preferred route for viewing this dashboard (ie: dashboards or dashboards-next)
 }
 
@@ -531,15 +531,15 @@ type DashboardBase struct {
   Description        *string          `json:"description,omitempty"`            // Description
   Hidden             *bool            `json:"hidden,omitempty"`                 // Is Hidden
   Id                 *string          `json:"id,omitempty"`                     // Unique Id
-  Model              *LookModel       `json:"model,omitempty"`                 
+  Model              *LookModel       `json:"model,omitempty"`
   QueryTimezone      *string          `json:"query_timezone,omitempty"`         // Timezone in which the Dashboard will run by default.
   Readonly           *bool            `json:"readonly,omitempty"`               // Is Read-only
   RefreshInterval    *string          `json:"refresh_interval,omitempty"`       // Refresh Interval, as a time duration phrase like "2 hours 30 minutes". A number with no time units will be interpreted as whole seconds.
   RefreshIntervalToI *int64           `json:"refresh_interval_to_i,omitempty"`  // Refresh Interval in milliseconds
-  Folder             *FolderBase      `json:"folder,omitempty"`                
+  Folder             *FolderBase      `json:"folder,omitempty"`
   Title              *string          `json:"title,omitempty"`                  // Dashboard Title
   UserId             *int64           `json:"user_id,omitempty"`                // Id of User
-  Space              *SpaceBase       `json:"space,omitempty"`                 
+  Space              *SpaceBase       `json:"space,omitempty"`
 }
 
 
@@ -550,7 +550,7 @@ type DashboardElement struct {
   DashboardId        *string                                     `json:"dashboard_id,omitempty"`           // Id of Dashboard
   EditUri            *url.URL                                    `json:"edit_uri,omitempty"`               // Relative path of URI of LookML file to edit the dashboard element (LookML dashboard only).
   Id                 *string                                     `json:"id,omitempty"`                     // Unique Id
-  Look               *LookWithQuery                              `json:"look,omitempty"`                  
+  Look               *LookWithQuery                              `json:"look,omitempty"`
   LookId             *string                                     `json:"look_id,omitempty"`                // Id Of Look
   LookmlLinkId       *string                                     `json:"lookml_link_id,omitempty"`         // LookML link ID
   MergeResultId      *string                                     `json:"merge_result_id,omitempty"`        // ID of merge result
@@ -558,11 +558,11 @@ type DashboardElement struct {
   NoteState          *string                                     `json:"note_state,omitempty"`             // Note State
   NoteText           *string                                     `json:"note_text,omitempty"`              // Note Text
   NoteTextAsHtml     *string                                     `json:"note_text_as_html,omitempty"`      // Note Text as Html
-  Query              *Query                                      `json:"query,omitempty"`                 
+  Query              *Query                                      `json:"query,omitempty"`
   QueryId            *int64                                      `json:"query_id,omitempty"`               // Id Of Query
   RefreshInterval    *string                                     `json:"refresh_interval,omitempty"`       // Refresh Interval
   RefreshIntervalToI *int64                                      `json:"refresh_interval_to_i,omitempty"`  // Refresh Interval as integer
-  ResultMaker        *ResultMakerWithIdVisConfigAndDynamicFields `json:"result_maker,omitempty"`          
+  ResultMaker        *ResultMakerWithIdVisConfigAndDynamicFields `json:"result_maker,omitempty"`
   ResultMakerId      *int64                                      `json:"result_maker_id,omitempty"`        // ID of the ResultMakerLookup entry.
   SubtitleText       *string                                     `json:"subtitle_text,omitempty"`          // Text tile subtitle text
   Title              *string                                     `json:"title,omitempty"`                  // Title of dashboard element
@@ -632,7 +632,7 @@ type DashboardLookml struct {
 
 
 type DataActionForm struct {
-  State  *DataActionUserState   `json:"state,omitempty"`  
+  State  *DataActionUserState   `json:"state,omitempty"`
   Fields *[]DataActionFormField `json:"fields,omitempty"`  // Array of form fields.
 }
 
@@ -666,7 +666,7 @@ type DataActionResponse struct {
   WebhookId        *string          `json:"webhook_id,omitempty"`         // ID of the webhook event that sent this data action. In some error conditions, this may be null.
   Success          *bool            `json:"success,omitempty"`            // Whether the data action was successful.
   RefreshQuery     *bool            `json:"refresh_query,omitempty"`      // When true, indicates that the client should refresh (rerun) the source query because the data may have been changed by the action.
-  ValidationErrors *ValidationError `json:"validation_errors,omitempty"` 
+  ValidationErrors *ValidationError `json:"validation_errors,omitempty"`
   Message          *string          `json:"message,omitempty"`            // Optional message returned by the data action server describing the state of the action that took place. This can be used to implement custom failure messages. If a failure is related to a particular form field, the server should send back a validation error instead. The Looker web UI does not currently display any message if the action indicates 'success', but may do so in the future.
 }
 
@@ -694,7 +694,7 @@ type Datagroup struct {
 type DBConnection struct {
   Can                     *map[string]bool      `json:"can,omitempty"`                         // Operations the current user is able to perform on this object
   Name                    *string               `json:"name,omitempty"`                        // Name of the connection. Also used as the unique identifier
-  Dialect                 *Dialect              `json:"dialect,omitempty"`                    
+  Dialect                 *Dialect              `json:"dialect,omitempty"`
   Snippets                *[]Snippet            `json:"snippets,omitempty"`                    // SQL Runner snippets for this connection
   PdtsEnabled             *bool                 `json:"pdts_enabled,omitempty"`                // True if PDTs are enabled on this connection
   Host                    *string               `json:"host,omitempty"`                        // Host name/address of server
@@ -726,7 +726,7 @@ type DBConnection struct {
   LastReapAt              *string               `json:"last_reap_at,omitempty"`                // Unix timestamp at start of last completed PDT reap process
   SqlRunnerPrecacheTables *bool                 `json:"sql_runner_precache_tables,omitempty"`  // Precache tables in the SQL Runner
   AfterConnectStatements  *string               `json:"after_connect_statements,omitempty"`    // SQL statements (semicolon separated) to issue after connecting to the database. Requires `custom_after_connect_statements` license feature
-  PdtContextOverride      *DBConnectionOverride `json:"pdt_context_override,omitempty"`       
+  PdtContextOverride      *DBConnectionOverride `json:"pdt_context_override,omitempty"`
   Managed                 *bool                 `json:"managed,omitempty"`                     // Is this connection created and managed by Looker
 }
 
@@ -734,7 +734,7 @@ type DBConnection struct {
 type DBConnectionBase struct {
   Can         *map[string]bool `json:"can,omitempty"`           // Operations the current user is able to perform on this object
   Name        *string          `json:"name,omitempty"`          // Name of the connection. Also used as the unique identifier
-  Dialect     *Dialect         `json:"dialect,omitempty"`      
+  Dialect     *Dialect         `json:"dialect,omitempty"`
   Snippets    *[]Snippet       `json:"snippets,omitempty"`      // SQL Runner snippets for this connection
   PdtsEnabled *bool            `json:"pdts_enabled,omitempty"`  // True if PDTs are enabled on this connection
 }
@@ -805,7 +805,7 @@ type DialectInfo struct {
   Label                      *string             `json:"label,omitempty"`                          // The human-readable label of the connection
   LabelForDatabaseEquivalent *string             `json:"label_for_database_equivalent,omitempty"`  // What the dialect calls the equivalent of a normal SQL table
   Name                       *string             `json:"name,omitempty"`                           // The name of the dialect
-  SupportedOptions           *DialectInfoOptions `json:"supported_options,omitempty"`             
+  SupportedOptions           *DialectInfoOptions `json:"supported_options,omitempty"`
 }
 
 
@@ -1076,11 +1076,11 @@ type Integration struct {
   Description                       *string                              `json:"description,omitempty"`                          // Description of the integration.
   Enabled                           *bool                                `json:"enabled,omitempty"`                              // Whether the integration is available to users.
   Params                            *[]IntegrationParam                  `json:"params,omitempty"`                               // Array of params for the integration.
-  SupportedFormats                  *[]SupportedFormats                  `json:"supported_formats,omitempty"`                    // A list of data formats the integration supports. If unspecified, the default is all data formats. Valid values are: "txt", "csv", "inline_json", "json", "json_label", "json_detail", "json_detail_lite_stream", "xlsx", "html", "wysiwyg_pdf", "assembled_pdf", "wysiwyg_png", "csv_zip".
-  SupportedActionTypes              *[]SupportedActionTypes              `json:"supported_action_types,omitempty"`               // A list of action types the integration supports. Valid values are: "cell", "query", "dashboard".
-  SupportedFormattings              *[]SupportedFormattings              `json:"supported_formattings,omitempty"`                // A list of formatting options the integration supports. If unspecified, defaults to all formats. Valid values are: "formatted", "unformatted".
-  SupportedVisualizationFormattings *[]SupportedVisualizationFormattings `json:"supported_visualization_formattings,omitempty"`  // A list of visualization formatting options the integration supports. If unspecified, defaults to all formats. Valid values are: "apply", "noapply".
-  SupportedDownloadSettings         *[]SupportedDownloadSettings         `json:"supported_download_settings,omitempty"`          // A list of all the download mechanisms the integration supports. The order of values is not significant: Looker will select the most appropriate supported download mechanism for a given query. The integration must ensure it can handle any of the mechanisms it claims to support. If unspecified, this defaults to all download setting values. Valid values are: "push", "url".
+  //SupportedFormats                  *[]SupportedFormats                  `json:"supported_formats,omitempty"`                    // A list of data formats the integration supports. If unspecified, the default is all data formats. Valid values are: "txt", "csv", "inline_json", "json", "json_label", "json_detail", "json_detail_lite_stream", "xlsx", "html", "wysiwyg_pdf", "assembled_pdf", "wysiwyg_png", "csv_zip".
+  //SupportedActionTypes              *[]SupportedActionTypes              `json:"supported_action_types,omitempty"`               // A list of action types the integration supports. Valid values are: "cell", "query", "dashboard".
+  //SupportedFormattings              *[]SupportedFormattings              `json:"supported_formattings,omitempty"`                // A list of formatting options the integration supports. If unspecified, defaults to all formats. Valid values are: "formatted", "unformatted".
+  //SupportedVisualizationFormattings *[]SupportedVisualizationFormattings `json:"supported_visualization_formattings,omitempty"`  // A list of visualization formatting options the integration supports. If unspecified, defaults to all formats. Valid values are: "apply", "noapply".
+  //SupportedDownloadSettings         *[]SupportedDownloadSettings         `json:"supported_download_settings,omitempty"`          // A list of all the download mechanisms the integration supports. The order of values is not significant: Looker will select the most appropriate supported download mechanism for a given query. The integration must ensure it can handle any of the mechanisms it claims to support. If unspecified, this defaults to all download setting values. Valid values are: "push", "url".
   IconUrl                           *string                              `json:"icon_url,omitempty"`                             // URL to an icon for the integration.
   UsesOauth                         *bool                                `json:"uses_oauth,omitempty"`                           // Whether the integration uses oauth.
   RequiredFields                    *[]IntegrationRequiredField          `json:"required_fields,omitempty"`                      // A list of descriptions of required fields that this integration is compatible with. If there are multiple entries in this list, the integration requires more than one field. If unspecified, no fields will be required.
@@ -1205,7 +1205,7 @@ type LDAPConfigTestResult struct {
   Message *string                `json:"message,omitempty"`  // Short human readable test about the result
   Status  *string                `json:"status,omitempty"`   // Test status code: always 'success' or 'error'
   Trace   *string                `json:"trace,omitempty"`    // A more detailed trace of incremental results during auth tests
-  User    *LDAPUser              `json:"user,omitempty"`    
+  User    *LDAPUser              `json:"user,omitempty"`
   Url     *url.URL               `json:"url,omitempty"`      // Link to ldap config
 }
 
@@ -1312,20 +1312,20 @@ type Look struct {
   LastAccessedAt           *time.Time       `json:"last_accessed_at,omitempty"`            // Time that the Look was last accessed by any user
   LastUpdaterId            *int64           `json:"last_updater_id,omitempty"`             // Id of User that last updated the look.
   LastViewedAt             *time.Time       `json:"last_viewed_at,omitempty"`              // Time last viewed in the Looker web UI
-  Model                    *LookModel       `json:"model,omitempty"`                      
+  Model                    *LookModel       `json:"model,omitempty"`
   Public                   *bool            `json:"public,omitempty"`                      // Is Public
   PublicSlug               *string          `json:"public_slug,omitempty"`                 // Public Slug
   PublicUrl                *string          `json:"public_url,omitempty"`                  // Public Url
   QueryId                  *int64           `json:"query_id,omitempty"`                    // Query Id
   ShortUrl                 *string          `json:"short_url,omitempty"`                   // Short Url
-  Folder                   *FolderBase      `json:"folder,omitempty"`                     
+  Folder                   *FolderBase      `json:"folder,omitempty"`
   FolderId                 *string          `json:"folder_id,omitempty"`                   // Folder Id
   UpdatedAt                *time.Time       `json:"updated_at,omitempty"`                  // Time that the Look was updated.
   UserId                   *int64           `json:"user_id,omitempty"`                     // User Id
   ViewCount                *int64           `json:"view_count,omitempty"`                  // Number of times viewed in the Looker web UI
-  User                     *UserIdOnly      `json:"user,omitempty"`                       
+  User                     *UserIdOnly      `json:"user,omitempty"`
   SpaceId                  *string          `json:"space_id,omitempty"`                    // Space Id
-  Space                    *SpaceBase       `json:"space,omitempty"`                      
+  Space                    *SpaceBase       `json:"space,omitempty"`
 }
 
 
@@ -1380,7 +1380,7 @@ type LookmlModelExplore struct {
   Sets                  *[]LookmlModelExploreSet                  `json:"sets,omitempty"`                     // Sets
   Tags                  *[]string                                 `json:"tags,omitempty"`                     // An array of arbitrary string tags provided in the model for this explore.
   Errors                *[]LookmlModelExploreError                `json:"errors,omitempty"`                   // Errors
-  Fields                *LookmlModelExploreFieldset               `json:"fields,omitempty"`                  
+  Fields                *LookmlModelExploreFieldset               `json:"fields,omitempty"`
   Joins                 *[]LookmlModelExploreJoins                `json:"joins,omitempty"`                    // Views joined into this explore
   GroupLabel            *string                                   `json:"group_label,omitempty"`              // Label used to group explores in the navigation menus
   SupportedMeasureTypes *[]LookmlModelExploreSupportedMeasureType `json:"supported_measure_types,omitempty"`  // An array of items describing which custom measure types are supported for creating a custom measure 'based_on' each possible dimension type.
@@ -1438,12 +1438,12 @@ type LookmlModelExploreField struct {
   IsNumeric                *bool                                    `json:"is_numeric,omitempty"`                   // Whether this field is of a type that represents a numeric value.
   IsTimeframe              *bool                                    `json:"is_timeframe,omitempty"`                 // Whether this field is of a type that represents a time value.
   CanTimeFilter            *bool                                    `json:"can_time_filter,omitempty"`              // Whether this field can be time filtered.
-  TimeInterval             *LookmlModelExploreFieldTimeInterval     `json:"time_interval,omitempty"`               
+  TimeInterval             *LookmlModelExploreFieldTimeInterval     `json:"time_interval,omitempty"`
   Label                    *string                                  `json:"label,omitempty"`                        // Fully-qualified human-readable label of the field.
   LabelFromParameter       *string                                  `json:"label_from_parameter,omitempty"`         // The name of the parameter that will provide a parameterized label for this field, if available in the current context.
   LabelShort               *string                                  `json:"label_short,omitempty"`                  // The human-readable label of the field, without the view label.
   LookmlLink               *string                                  `json:"lookml_link,omitempty"`                  // A URL linking to the definition of this field in the LookML IDE.
-  MapLayer                 *LookmlModelExploreFieldMapLayer         `json:"map_layer,omitempty"`                   
+  MapLayer                 *LookmlModelExploreFieldMapLayer         `json:"map_layer,omitempty"`
   Measure                  *bool                                    `json:"measure,omitempty"`                      // Whether this field is a measure.
   Name                     *string                                  `json:"name,omitempty"`                         // Fully-qualified name of the field.
   StrictValueFormat        *bool                                    `json:"strict_value_format,omitempty"`          // If yes, the field will not be localized with the user attribute number_format. Defaults to no
@@ -1465,7 +1465,7 @@ type LookmlModelExploreField struct {
   Suggestions              *[]string                                `json:"suggestions,omitempty"`                  // If available, a list of suggestions for this field. For most fields, a suggest query is a more appropriate way to get an up-to-date list of suggestions. Or use enumerations to list all the possible values.
   Tags                     *[]string                                `json:"tags,omitempty"`                         // An array of arbitrary string tags provided in the model for this field.
   Type                     *string                                  `json:"type,omitempty"`                         // The LookML type of the field.
-  UserAttributeFilterTypes *[]UserAttributeFilterTypes              `json:"user_attribute_filter_types,omitempty"`  // An array of user attribute types that are allowed to be used in filters on this field. Valid values are: "advanced_filter_string", "advanced_filter_number", "advanced_filter_datetime", "string", "number", "datetime", "relative_url", "yesno", "zipcode".
+  //UserAttributeFilterTypes *[]UserAttributeFilterTypes              `json:"user_attribute_filter_types,omitempty"`  // An array of user attribute types that are allowed to be used in filters on this field. Valid values are: "advanced_filter_string", "advanced_filter_number", "advanced_filter_datetime", "string", "number", "datetime", "relative_url", "yesno", "zipcode".
   ValueFormat              *string                                  `json:"value_format,omitempty"`                 // If specified, the LookML value format string for formatting values of this field.
   View                     *string                                  `json:"view,omitempty"`                         // The name of the view this field belongs to.
   ViewLabel                *string                                  `json:"view_label,omitempty"`                   // The human-readable label of the view the field belongs to.
@@ -1544,8 +1544,8 @@ type LookmlModelExploreSet struct {
 
 
 type LookmlModelExploreSupportedMeasureType struct {
-  DimensionType *string   `json:"dimension_type,omitempty"` 
-  MeasureTypes  *[]string `json:"measure_types,omitempty"`  
+  DimensionType *string   `json:"dimension_type,omitempty"`
+  MeasureTypes  *[]string `json:"measure_types,omitempty"`
 }
 
 
@@ -1608,20 +1608,20 @@ type LookWithDashboards struct {
   LastAccessedAt           *time.Time       `json:"last_accessed_at,omitempty"`            // Time that the Look was last accessed by any user
   LastUpdaterId            *int64           `json:"last_updater_id,omitempty"`             // Id of User that last updated the look.
   LastViewedAt             *time.Time       `json:"last_viewed_at,omitempty"`              // Time last viewed in the Looker web UI
-  Model                    *LookModel       `json:"model,omitempty"`                      
+  Model                    *LookModel       `json:"model,omitempty"`
   Public                   *bool            `json:"public,omitempty"`                      // Is Public
   PublicSlug               *string          `json:"public_slug,omitempty"`                 // Public Slug
   PublicUrl                *string          `json:"public_url,omitempty"`                  // Public Url
   QueryId                  *int64           `json:"query_id,omitempty"`                    // Query Id
   ShortUrl                 *string          `json:"short_url,omitempty"`                   // Short Url
-  Folder                   *FolderBase      `json:"folder,omitempty"`                     
+  Folder                   *FolderBase      `json:"folder,omitempty"`
   FolderId                 *string          `json:"folder_id,omitempty"`                   // Folder Id
   UpdatedAt                *time.Time       `json:"updated_at,omitempty"`                  // Time that the Look was updated.
   UserId                   *int64           `json:"user_id,omitempty"`                     // User Id
   ViewCount                *int64           `json:"view_count,omitempty"`                  // Number of times viewed in the Looker web UI
-  User                     *UserIdOnly      `json:"user,omitempty"`                       
+  User                     *UserIdOnly      `json:"user,omitempty"`
   SpaceId                  *string          `json:"space_id,omitempty"`                    // Space Id
-  Space                    *SpaceBase       `json:"space,omitempty"`                      
+  Space                    *SpaceBase       `json:"space,omitempty"`
   Dashboards               *[]DashboardBase `json:"dashboards,omitempty"`                  // Dashboards
 }
 
@@ -1646,21 +1646,21 @@ type LookWithQuery struct {
   LastAccessedAt           *time.Time       `json:"last_accessed_at,omitempty"`            // Time that the Look was last accessed by any user
   LastUpdaterId            *int64           `json:"last_updater_id,omitempty"`             // Id of User that last updated the look.
   LastViewedAt             *time.Time       `json:"last_viewed_at,omitempty"`              // Time last viewed in the Looker web UI
-  Model                    *LookModel       `json:"model,omitempty"`                      
+  Model                    *LookModel       `json:"model,omitempty"`
   Public                   *bool            `json:"public,omitempty"`                      // Is Public
   PublicSlug               *string          `json:"public_slug,omitempty"`                 // Public Slug
   PublicUrl                *string          `json:"public_url,omitempty"`                  // Public Url
   QueryId                  *int64           `json:"query_id,omitempty"`                    // Query Id
   ShortUrl                 *string          `json:"short_url,omitempty"`                   // Short Url
-  Folder                   *FolderBase      `json:"folder,omitempty"`                     
+  Folder                   *FolderBase      `json:"folder,omitempty"`
   FolderId                 *string          `json:"folder_id,omitempty"`                   // Folder Id
   UpdatedAt                *time.Time       `json:"updated_at,omitempty"`                  // Time that the Look was updated.
   UserId                   *int64           `json:"user_id,omitempty"`                     // User Id
   ViewCount                *int64           `json:"view_count,omitempty"`                  // Number of times viewed in the Looker web UI
-  User                     *UserIdOnly      `json:"user,omitempty"`                       
+  User                     *UserIdOnly      `json:"user,omitempty"`
   SpaceId                  *string          `json:"space_id,omitempty"`                    // Space Id
-  Space                    *SpaceBase       `json:"space,omitempty"`                      
-  Query                    *Query           `json:"query,omitempty"`                      
+  Space                    *SpaceBase       `json:"space,omitempty"`
+  Query                    *Query           `json:"query,omitempty"`
   Url                      *string          `json:"url,omitempty"`                         // Url
 }
 
@@ -1669,7 +1669,7 @@ type Manifest struct {
   Can                  *map[string]bool      `json:"can,omitempty"`                    // Operations the current user is able to perform on this object
   Name                 *string               `json:"name,omitempty"`                   // Manifest project name
   Imports              *[]ImportedProject    `json:"imports,omitempty"`                // Imports for a project
-  LocalizationSettings *LocalizationSettings `json:"localization_settings,omitempty"` 
+  LocalizationSettings *LocalizationSettings `json:"localization_settings,omitempty"`
 }
 
 
@@ -1702,10 +1702,10 @@ type MergeQuerySourceQuery struct {
 
 type ModelSet struct {
   Can       *map[string]bool `json:"can,omitempty"`         // Operations the current user is able to perform on this object
-  AllAccess *bool            `json:"all_access,omitempty"` 
-  BuiltIn   *bool            `json:"built_in,omitempty"`   
+  AllAccess *bool            `json:"all_access,omitempty"`
+  BuiltIn   *bool            `json:"built_in,omitempty"`
   Id        *int64           `json:"id,omitempty"`          // Unique Id
-  Models    *[]string        `json:"models,omitempty"`     
+  Models    *[]string        `json:"models,omitempty"`
   Name      *string          `json:"name,omitempty"`        // Name of ModelSet
   Url       *url.URL         `json:"url,omitempty"`         // Link to get this item
 }
@@ -1820,11 +1820,11 @@ type Permission struct {
 
 type PermissionSet struct {
   Can         *map[string]bool `json:"can,omitempty"`          // Operations the current user is able to perform on this object
-  AllAccess   *bool            `json:"all_access,omitempty"`  
-  BuiltIn     *bool            `json:"built_in,omitempty"`    
+  AllAccess   *bool            `json:"all_access,omitempty"`
+  BuiltIn     *bool            `json:"built_in,omitempty"`
   Id          *int64           `json:"id,omitempty"`           // Unique Id
   Name        *string          `json:"name,omitempty"`         // Name of PermissionSet
-  Permissions *[]string        `json:"permissions,omitempty"` 
+  Permissions *[]string        `json:"permissions,omitempty"`
   Url         *url.URL         `json:"url,omitempty"`          // Link to get this item
 }
 
@@ -1882,7 +1882,7 @@ type ProjectFile struct {
   Extension *string          `json:"extension,omitempty"`   // The extension of the file: .view.lkml, .model.lkml, etc
   MimeType  *string          `json:"mime_type,omitempty"`   // File mime type
   Editable  *bool            `json:"editable,omitempty"`    // State of editability for the file.
-  GitStatus *GitStatus       `json:"git_status,omitempty"` 
+  GitStatus *GitStatus       `json:"git_status,omitempty"`
 }
 
 
@@ -1910,7 +1910,7 @@ type ProjectWorkspace struct {
   GitStatus        *string               `json:"git_status,omitempty"`         // The status of the local git directory
   GitHead          *string               `json:"git_head,omitempty"`           // Git head revision name
   DependencyStatus *DependencyStatusType `json:"dependency_status,omitempty"`  // Status of the dependencies in your project. Valid values are: "lock_optional", "lock_required", "lock_error", "install_none".
-  GitBranch        *GitBranch            `json:"git_branch,omitempty"`        
+  GitBranch        *GitBranch            `json:"git_branch,omitempty"`
   LookmlType       *string               `json:"lookml_type,omitempty"`        // The lookml syntax used by all files in this project
 }
 
@@ -1957,7 +1957,7 @@ type QueryTask struct {
   Can              *map[string]bool `json:"can,omitempty"`                 // Operations the current user is able to perform on this object
   Id               *string          `json:"id,omitempty"`                  // Unique Id
   QueryId          *int64           `json:"query_id,omitempty"`            // Id of query
-  Query            *Query           `json:"query,omitempty"`              
+  Query            *Query           `json:"query,omitempty"`
   GenerateLinks    *bool            `json:"generate_links,omitempty"`      // whether or not to generate links in the query response.
   ForceProduction  *bool            `json:"force_production,omitempty"`    // Use production models to run query (even is user is in dev mode).
   PathPrefix       *string          `json:"path_prefix,omitempty"`         // Prefix to use for drill links.
@@ -2092,7 +2092,7 @@ type RequestContentThumbnail struct {
 type RequestCreateDashboardRenderTask struct {
   DashboardId  int64                     `json:"dashboard_id"`              // Id of dashboard to render
   ResultFormat string                    `json:"result_format"`             // Output type: pdf, png, or jpg
-  Body         CreateDashboardRenderTask `json:"body"`                     
+  Body         CreateDashboardRenderTask `json:"body"`
   Width        int64                     `json:"width"`                     // Output width in pixels
   Height       int64                     `json:"height"`                    // Output height in pixels
   Fields       *string                   `json:"fields,omitempty"`          // Requested fields.
@@ -2104,7 +2104,7 @@ type RequestCreateDashboardRenderTask struct {
 type RequestCreateLookmlDashboardRenderTask struct {
   DashboardId  string                    `json:"dashboard_id"`              // Id of lookml dashboard to render
   ResultFormat string                    `json:"result_format"`             // Output type: pdf, png, or jpg
-  Body         CreateDashboardRenderTask `json:"body"`                     
+  Body         CreateDashboardRenderTask `json:"body"`
   Width        int64                     `json:"width"`                     // Output width in pixels
   Height       int64                     `json:"height"`                    // Output height in pixels
   Fields       *string                   `json:"fields,omitempty"`          // Requested fields.
@@ -2114,7 +2114,7 @@ type RequestCreateLookmlDashboardRenderTask struct {
 
 // Dynamically generated request type for create_query_task
 type RequestCreateQueryTask struct {
-  Body               WriteCreateQueryTask `json:"body"`                           
+  Body               WriteCreateQueryTask `json:"body"`
   Limit              *int64               `json:"limit,omitempty"`                 // Row limit (may override the limit in the saved query).
   ApplyFormatting    *bool                `json:"apply_formatting,omitempty"`      // Apply model-specified formatting to each result.
   ApplyVis           *bool                `json:"apply_vis,omitempty"`             // Apply visualization options to results.
@@ -2177,7 +2177,7 @@ type RequestRoleUsers struct {
 // Dynamically generated request type for run_inline_query
 type RequestRunInlineQuery struct {
   ResultFormat       string     `json:"result_format"`                   // Format of result
-  Body               WriteQuery `json:"body"`                           
+  Body               WriteQuery `json:"body"`
   Limit              *int64     `json:"limit,omitempty"`                 // Row limit (may override the limit in the saved query).
   ApplyFormatting    *bool      `json:"apply_formatting,omitempty"`      // Apply model-specified formatting to each result.
   ApplyVis           *bool      `json:"apply_vis,omitempty"`             // Apply visualization options to results.
@@ -2545,7 +2545,7 @@ type ResultMakerWithIdVisConfigAndDynamicFields struct {
   Total         *bool                     `json:"total,omitempty"`            // Total of the constituent Look, Query, or Merge Query
   QueryId       *int64                    `json:"query_id,omitempty"`         // ID of query if this is a query.
   SqlQueryId    *string                   `json:"sql_query_id,omitempty"`     // ID of SQL Query if this is a SQL Runner Query
-  Query         *Query                    `json:"query,omitempty"`           
+  Query         *Query                    `json:"query,omitempty"`
   VisConfig     *map[string]interface{}   `json:"vis_config,omitempty"`       // Vis config of the constituent Query, or Merge Query.
 }
 
@@ -2554,9 +2554,9 @@ type Role struct {
   Can             *map[string]bool `json:"can,omitempty"`                // Operations the current user is able to perform on this object
   Id              *int64           `json:"id,omitempty"`                 // Unique Id
   Name            *string          `json:"name,omitempty"`               // Name of Role
-  PermissionSet   *PermissionSet   `json:"permission_set,omitempty"`    
+  PermissionSet   *PermissionSet   `json:"permission_set,omitempty"`
   PermissionSetId *int64           `json:"permission_set_id,omitempty"`  // (Write-Only) Id of permission set
-  ModelSet        *ModelSet        `json:"model_set,omitempty"`         
+  ModelSet        *ModelSet        `json:"model_set,omitempty"`
   ModelSetId      *int64           `json:"model_set_id,omitempty"`       // (Write-Only) Id of model set
   Url             *url.URL         `json:"url,omitempty"`                // Link to get this item
   UsersUrl        *url.URL         `json:"users_url,omitempty"`          // Link to get list of users with this role
@@ -2566,10 +2566,10 @@ type Role struct {
 type RunningQueries struct {
   Can            *map[string]bool `json:"can,omitempty"`              // Operations the current user is able to perform on this object
   Id             *int64           `json:"id,omitempty"`               // Unique Id
-  User           *UserPublic      `json:"user,omitempty"`            
-  Query          *Query           `json:"query,omitempty"`           
-  SqlQuery       *SqlQuery        `json:"sql_query,omitempty"`       
-  Look           *LookBasic       `json:"look,omitempty"`            
+  User           *UserPublic      `json:"user,omitempty"`
+  Query          *Query           `json:"query,omitempty"`
+  SqlQuery       *SqlQuery        `json:"sql_query,omitempty"`
+  Look           *LookBasic       `json:"look,omitempty"`
   CreatedAt      *string          `json:"created_at,omitempty"`       // Date/Time Query was initiated
   CompletedAt    *string          `json:"completed_at,omitempty"`     // Date/Time Query was completed
   QueryId        *string          `json:"query_id,omitempty"`         // Query Id
@@ -2700,7 +2700,7 @@ type ScheduledPlan struct {
   CreatedAt                *time.Time                  `json:"created_at,omitempty"`                  // Date and time when ScheduledPlan was created
   UpdatedAt                *time.Time                  `json:"updated_at,omitempty"`                  // Date and time when ScheduledPlan was last updated
   Title                    *string                     `json:"title,omitempty"`                       // Title
-  User                     *UserPublic                 `json:"user,omitempty"`                       
+  User                     *UserPublic                 `json:"user,omitempty"`
   NextRunAt                *time.Time                  `json:"next_run_at,omitempty"`                 // When the ScheduledPlan will next run (null if running once)
   LastRunAt                *time.Time                  `json:"last_run_at,omitempty"`                 // When the ScheduledPlan was last run
   Can                      *map[string]bool            `json:"can,omitempty"`                         // Operations the current user is able to perform on this object
@@ -2809,9 +2809,9 @@ type SqlQuery struct {
   BrowserLimit  *int64                  `json:"browser_limit,omitempty"`    // Maximum number of rows this query will display on the SQL Runner page
   Sql           *string                 `json:"sql,omitempty"`              // SQL query text
   LastRunAt     *string                 `json:"last_run_at,omitempty"`      // The most recent time this query was run
-  Connection    *DBConnectionBase       `json:"connection,omitempty"`      
+  Connection    *DBConnectionBase       `json:"connection,omitempty"`
   ModelName     *string                 `json:"model_name,omitempty"`       // Model name this query uses
-  Creator       *UserPublic             `json:"creator,omitempty"`         
+  Creator       *UserPublic             `json:"creator,omitempty"`
   ExploreUrl    *string                 `json:"explore_url,omitempty"`      // Explore page URL for this SQL query
   Plaintext     *bool                   `json:"plaintext,omitempty"`        // Should this query be rendered as plain text
   VisConfig     *map[string]interface{} `json:"vis_config,omitempty"`       // Visualization configuration properties. These properties are typically opaque and differ based on the type of visualization used. There is no specified set of allowed keys. The values can be any type supported by JSON. A "type" key with a string value is often present, and is used by Looker to determine which visualization to present. Visualizations ignore unknown vis_config properties.
@@ -2871,7 +2871,7 @@ type Theme struct {
   EndAt    *time.Time       `json:"end_at,omitempty"`    // Timestamp for when this theme expires. Null=never
   Id       *int64           `json:"id,omitempty"`        // Unique Id
   Name     *string          `json:"name,omitempty"`      // Name of theme. Can only be alphanumeric and underscores.
-  Settings *ThemeSettings   `json:"settings,omitempty"` 
+  Settings *ThemeSettings   `json:"settings,omitempty"`
 }
 
 
@@ -2920,14 +2920,14 @@ type User struct {
   AvatarUrl                  *url.URL                 `json:"avatar_url,omitempty"`                      // URL for the avatar image (may be generic)
   AvatarUrlWithoutSizing     *url.URL                 `json:"avatar_url_without_sizing,omitempty"`       // URL for the avatar image (may be generic), does not specify size
   CredentialsApi3            *[]CredentialsApi3       `json:"credentials_api3,omitempty"`                // API 3 credentials
-  CredentialsEmail           *CredentialsEmail        `json:"credentials_email,omitempty"`              
+  CredentialsEmail           *CredentialsEmail        `json:"credentials_email,omitempty"`
   CredentialsEmbed           *[]CredentialsEmbed      `json:"credentials_embed,omitempty"`               // Embed credentials
-  CredentialsGoogle          *CredentialsGoogle       `json:"credentials_google,omitempty"`             
-  CredentialsLdap            *CredentialsLDAP         `json:"credentials_ldap,omitempty"`               
-  CredentialsLookerOpenid    *CredentialsLookerOpenid `json:"credentials_looker_openid,omitempty"`      
-  CredentialsOidc            *CredentialsOIDC         `json:"credentials_oidc,omitempty"`               
-  CredentialsSaml            *CredentialsSaml         `json:"credentials_saml,omitempty"`               
-  CredentialsTotp            *CredentialsTotp         `json:"credentials_totp,omitempty"`               
+  CredentialsGoogle          *CredentialsGoogle       `json:"credentials_google,omitempty"`
+  CredentialsLdap            *CredentialsLDAP         `json:"credentials_ldap,omitempty"`
+  CredentialsLookerOpenid    *CredentialsLookerOpenid `json:"credentials_looker_openid,omitempty"`
+  CredentialsOidc            *CredentialsOIDC         `json:"credentials_oidc,omitempty"`
+  CredentialsSaml            *CredentialsSaml         `json:"credentials_saml,omitempty"`
+  CredentialsTotp            *CredentialsTotp         `json:"credentials_totp,omitempty"`
   DisplayName                *string                  `json:"display_name,omitempty"`                    // Full name for display (available only if both first_name and last_name are set)
   Email                      *string                  `json:"email,omitempty"`                           // EMail address
   EmbedGroupSpaceId          *int64                   `json:"embed_group_space_id,omitempty"`            // (Embed only) ID of user's group space based on the external_group_id optionally specified during embed user login
@@ -3129,7 +3129,7 @@ type WriteColorCollection struct {
 type WriteContentFavorite struct {
   UserId            *int64              `json:"user_id,omitempty"`              // User Id which owns this ContentFavorite
   ContentMetadataId *int64              `json:"content_metadata_id,omitempty"`  // Content Metadata Id associated with this ContentFavorite
-  Dashboard         *WriteDashboardBase `json:"dashboard,omitempty"`           
+  Dashboard         *WriteDashboardBase `json:"dashboard,omitempty"`
 }
 
 // Dynamically generated writeable type for ContentMeta removes properties:
@@ -3190,9 +3190,9 @@ type WriteDashboard struct {
   Hidden              *bool                `json:"hidden,omitempty"`                 // Is Hidden
   QueryTimezone       *string              `json:"query_timezone,omitempty"`         // Timezone in which the Dashboard will run by default.
   RefreshInterval     *string              `json:"refresh_interval,omitempty"`       // Refresh Interval, as a time duration phrase like "2 hours 30 minutes". A number with no time units will be interpreted as whole seconds.
-  Folder              *WriteFolderBase     `json:"folder,omitempty"`                
+  Folder              *WriteFolderBase     `json:"folder,omitempty"`
   Title               *string              `json:"title,omitempty"`                  // Dashboard Title
-  Space               *WriteSpaceBase      `json:"space,omitempty"`                 
+  Space               *WriteSpaceBase      `json:"space,omitempty"`
   BackgroundColor     *string              `json:"background_color,omitempty"`       // Background color
   CrossfilterEnabled  *bool                `json:"crossfilter_enabled,omitempty"`    // Enables crossfiltering in dashboards - only available in dashboards-next (beta)
   Deleted             *bool                `json:"deleted,omitempty"`                // Whether or not a dashboard is 'soft' deleted.
@@ -3207,15 +3207,15 @@ type WriteDashboard struct {
   TileBackgroundColor *string              `json:"tile_background_color,omitempty"`  // Tile background color
   TileTextColor       *string              `json:"tile_text_color,omitempty"`        // Tile text color
   TitleColor          *string              `json:"title_color,omitempty"`            // Title color
-  Appearance          *DashboardAppearance `json:"appearance,omitempty"`            
+  Appearance          *DashboardAppearance `json:"appearance,omitempty"`
   PreferredViewer     *string              `json:"preferred_viewer,omitempty"`       // The preferred route for viewing this dashboard (ie: dashboards or dashboards-next)
 }
 
 // Dynamically generated writeable type for DashboardBase removes properties:
 // can, content_favorite_id, content_metadata_id, description, hidden, id, model, query_timezone, readonly, refresh_interval, refresh_interval_to_i, title, user_id
 type WriteDashboardBase struct {
-  Folder *WriteFolderBase `json:"folder,omitempty"` 
-  Space  *WriteSpaceBase  `json:"space,omitempty"`  
+  Folder *WriteFolderBase `json:"folder,omitempty"`
+  Space  *WriteSpaceBase  `json:"space,omitempty"`
 }
 
 // Dynamically generated writeable type for DashboardElement removes properties:
@@ -3223,16 +3223,16 @@ type WriteDashboardBase struct {
 type WriteDashboardElement struct {
   BodyText        *string                                          `json:"body_text,omitempty"`         // Text tile body text
   DashboardId     *string                                          `json:"dashboard_id,omitempty"`      // Id of Dashboard
-  Look            *WriteLookWithQuery                              `json:"look,omitempty"`             
+  Look            *WriteLookWithQuery                              `json:"look,omitempty"`
   LookId          *string                                          `json:"look_id,omitempty"`           // Id Of Look
   MergeResultId   *string                                          `json:"merge_result_id,omitempty"`   // ID of merge result
   NoteDisplay     *string                                          `json:"note_display,omitempty"`      // Note Display
   NoteState       *string                                          `json:"note_state,omitempty"`        // Note State
   NoteText        *string                                          `json:"note_text,omitempty"`         // Note Text
-  Query           *WriteQuery                                      `json:"query,omitempty"`            
+  Query           *WriteQuery                                      `json:"query,omitempty"`
   QueryId         *int64                                           `json:"query_id,omitempty"`          // Id Of Query
   RefreshInterval *string                                          `json:"refresh_interval,omitempty"`  // Refresh Interval
-  ResultMaker     *WriteResultMakerWithIdVisConfigAndDynamicFields `json:"result_maker,omitempty"`     
+  ResultMaker     *WriteResultMakerWithIdVisConfigAndDynamicFields `json:"result_maker,omitempty"`
   ResultMakerId   *int64                                           `json:"result_maker_id,omitempty"`   // ID of the ResultMakerLookup entry.
   SubtitleText    *string                                          `json:"subtitle_text,omitempty"`     // Text tile subtitle text
   Title           *string                                          `json:"title,omitempty"`             // Title of dashboard element
@@ -3313,7 +3313,7 @@ type WriteDBConnection struct {
   MaintenanceCron         *string                    `json:"maintenance_cron,omitempty"`            // Cron string specifying when maintenance such as PDT trigger checks and drops should be performed
   SqlRunnerPrecacheTables *bool                      `json:"sql_runner_precache_tables,omitempty"`  // Precache tables in the SQL Runner
   AfterConnectStatements  *string                    `json:"after_connect_statements,omitempty"`    // SQL statements (semicolon separated) to issue after connecting to the database. Requires `custom_after_connect_statements` license feature
-  PdtContextOverride      *WriteDBConnectionOverride `json:"pdt_context_override,omitempty"`       
+  PdtContextOverride      *WriteDBConnectionOverride `json:"pdt_context_override,omitempty"`
 }
 
 // Dynamically generated writeable type for DBConnectionOverride removes properties:
@@ -3481,12 +3481,12 @@ type WriteLookWithQuery struct {
   IsRunOnLoad *bool            `json:"is_run_on_load,omitempty"`  // auto-run query when Look viewed
   Public      *bool            `json:"public,omitempty"`          // Is Public
   QueryId     *int64           `json:"query_id,omitempty"`        // Query Id
-  Folder      *WriteFolderBase `json:"folder,omitempty"`         
+  Folder      *WriteFolderBase `json:"folder,omitempty"`
   FolderId    *string          `json:"folder_id,omitempty"`       // Folder Id
   UserId      *int64           `json:"user_id,omitempty"`         // User Id
   SpaceId     *string          `json:"space_id,omitempty"`        // Space Id
-  Space       *WriteSpaceBase  `json:"space,omitempty"`          
-  Query       *WriteQuery      `json:"query,omitempty"`          
+  Space       *WriteSpaceBase  `json:"space,omitempty"`
+  Query       *WriteQuery      `json:"query,omitempty"`
 }
 
 // Dynamically generated writeable type for MergeQuery removes properties:
@@ -3504,7 +3504,7 @@ type WriteMergeQuery struct {
 // Dynamically generated writeable type for ModelSet removes properties:
 // can, all_access, built_in, id, url
 type WriteModelSet struct {
-  Models *[]string `json:"models,omitempty"` 
+  Models *[]string `json:"models,omitempty"`
   Name   *string   `json:"name,omitempty"`    // Name of ModelSet
 }
 
@@ -3550,7 +3550,7 @@ type WritePasswordConfig struct {
 // can, all_access, built_in, id, url
 type WritePermissionSet struct {
   Name        *string   `json:"name,omitempty"`         // Name of PermissionSet
-  Permissions *[]string `json:"permissions,omitempty"` 
+  Permissions *[]string `json:"permissions,omitempty"`
 }
 
 // Dynamically generated writeable type for Project removes properties:
@@ -3609,16 +3609,16 @@ type WriteRepositoryCredential struct {
 // Dynamically generated writeable type for ResultMakerWithIdVisConfigAndDynamicFields removes properties:
 // id, dynamic_fields, filterables, sorts, merge_result_id, total, query_id, sql_query_id, vis_config
 type WriteResultMakerWithIdVisConfigAndDynamicFields struct {
-  Query *WriteQuery `json:"query,omitempty"` 
+  Query *WriteQuery `json:"query,omitempty"`
 }
 
 // Dynamically generated writeable type for Role removes properties:
 // can, id, url, users_url
 type WriteRole struct {
   Name            *string             `json:"name,omitempty"`               // Name of Role
-  PermissionSet   *WritePermissionSet `json:"permission_set,omitempty"`    
+  PermissionSet   *WritePermissionSet `json:"permission_set,omitempty"`
   PermissionSetId *int64              `json:"permission_set_id,omitempty"`  // (Write-Only) Id of permission set
-  ModelSet        *WriteModelSet      `json:"model_set,omitempty"`         
+  ModelSet        *WriteModelSet      `json:"model_set,omitempty"`
   ModelSetId      *int64              `json:"model_set_id,omitempty"`       // (Write-Only) Id of model set
 }
 
@@ -3705,13 +3705,13 @@ type WriteTheme struct {
   BeginAt  *time.Time     `json:"begin_at,omitempty"`  // Timestamp for when this theme becomes active. Null=always
   EndAt    *time.Time     `json:"end_at,omitempty"`    // Timestamp for when this theme expires. Null=never
   Name     *string        `json:"name,omitempty"`      // Name of theme. Can only be alphanumeric and underscores.
-  Settings *ThemeSettings `json:"settings,omitempty"` 
+  Settings *ThemeSettings `json:"settings,omitempty"`
 }
 
 // Dynamically generated writeable type for User removes properties:
 // can, avatar_url, avatar_url_without_sizing, credentials_api3, credentials_embed, credentials_google, credentials_ldap, credentials_looker_openid, credentials_oidc, credentials_saml, credentials_totp, display_name, email, embed_group_space_id, group_ids, id, looker_versions, personal_space_id, personal_folder_id, presumed_looker_employee, role_ids, sessions, verified_looker_employee, roles_externally_managed, allow_direct_roles, allow_normal_group_membership, allow_roles_from_normal_groups, url
 type WriteUser struct {
-  CredentialsEmail   *WriteCredentialsEmail  `json:"credentials_email,omitempty"`    
+  CredentialsEmail   *WriteCredentialsEmail  `json:"credentials_email,omitempty"`
   FirstName          *string                 `json:"first_name,omitempty"`            // First name
   HomeSpaceId        *string                 `json:"home_space_id,omitempty"`         // ID string for user's home space
   HomeFolderId       *string                 `json:"home_folder_id,omitempty"`        // ID string for user's home folder
